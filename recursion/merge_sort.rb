@@ -13,11 +13,9 @@ def merge(left, right)
   result = []
   while left.any? && right.any?
     if left.first < right.first
-      result << left.first
-      left.shift
+      result << left.shift
     else
-      result << right.first
-      right.shift
+      result << right.shift
     end
   end
   result + left + right
