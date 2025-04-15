@@ -11,20 +11,16 @@ end
 
 def merge(left, right)
   result = []
-  i = 0
-  j = 0
-  k = 0
-  while i <= left.size && j <= right.size
-    if left[i] < right[j]
-      result[k] = right[j]
-      j += 1
+  while left.any? && right.any? 
+    if left.first < right.first
+      result << left.first
+      left.shift
     else
-      result[k] = left[i]
-      i += 1
+      result << right.first
+      right.shift
     end
-    k += 1
   end
-  result
+  result + left + right
 end
 
 p merge_sort([3, 2, 1, 13, 8, 5, 0, 1]) # [0, 1, 1, 2, 3, 5, 8, 13]
