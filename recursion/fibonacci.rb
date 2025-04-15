@@ -14,15 +14,15 @@ def fibs_rec(n)
   puts 'This was printed recursively'
 
   if n.zero?
-    return []
-  elsif n <= 2
-    return fibs_rec(n - 1) << n - 1
+    return [0]
+  elsif n == 1
+    return [0, 1]
   else
     result = fibs_rec(n - 1)
-    result << result[-1] + result[-2]
-    return result
+    return result << result[-1] + result[-2]
   end
 end
+
 
 print fibs(8) # [0, 1, 1, 2, 3, 5, 8, 13]
 print fibs_rec(8) # [0, 1, 1, 2, 3, 5, 8, 13]
