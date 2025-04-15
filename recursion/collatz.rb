@@ -1,9 +1,9 @@
 def collatz(n)
   return 0 if n == 1
 
-  return 1 + collatz(n / 2) if n % 2 == 0
+  return 1 + collatz(n / 2) if n.even?
 
-  return 1 + collatz(3 * n + 1) if n % 2 == 1
+  1 + collatz(3 * n + 1) if n.odd?
 end
 
 puts collatz(1)
